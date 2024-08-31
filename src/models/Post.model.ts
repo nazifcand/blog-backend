@@ -31,7 +31,7 @@ export class Post extends Model {
 
   @ForeignKey(() => User)
   @Column
-  createdUserId: number;
+  userId: number;
 
   @BelongsTo(() => User)
   user: User;

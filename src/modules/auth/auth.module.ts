@@ -15,5 +15,6 @@ import { JWT_KEY } from '../../../constants';
   ],
   controllers: [AuthController],
   providers: [AuthService],
+  exports: [AuthService],
 })
 export class AuthModule {}
