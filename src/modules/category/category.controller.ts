@@ -118,7 +118,7 @@ export class CategoryController {
   async deleteCategory(
     @Param('categoryId') categoryId: string,
   ): Promise<string> {
-    const [error, organization] = await this.categoryService.deleteCategoryById(
+    const [error, category] = await this.categoryService.deleteCategoryById(
       Number(categoryId),
     );
 
@@ -129,11 +129,11 @@ export class CategoryController {
       );
     }
 
-    // not found organization
-    if (!organization) {
+    // not found category
+    if (!category) {
       throw new HttpException('NOT_FOUND', HttpStatus.NOT_FOUND);
     }
 
-    return organization;
+    return category;
   }
 }
