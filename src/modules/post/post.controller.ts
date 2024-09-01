@@ -77,6 +77,12 @@ export class PostController {
       throw new HttpException(error.name, HttpStatus.UNPROCESSABLE_ENTITY);
     }
 
+    // set categories
+    post.$set('categories', body.categories);
+
+    // set tags
+    post.$set('tags', body.tags);
+
     return post;
   }
 
@@ -108,6 +114,15 @@ export class PostController {
     // not found post
     if (!post) {
       throw new HttpException('NOT_FOUND', HttpStatus.NOT_FOUND);
+    }
+
+    // set categories
+    if (body?.categories?.length > 0) {
+      post.$set('categories', body.categories);
+    }
+    // set tags
+    if (body?.tags?.length > 0) {
+      post.$set('tags', body.tags);
     }
 
     return post;

@@ -2,6 +2,7 @@ import {
   BelongsTo,
   BelongsToMany,
   Column,
+  DataType,
   ForeignKey,
   Model,
   Table,
@@ -26,7 +27,7 @@ export class Post extends Model {
   @Column
   thumbnail: string;
 
-  @Column
+  @Column(DataType.TEXT)
   content: string;
 
   @ForeignKey(() => User)
