@@ -1,0 +1,473 @@
+{
+	"info": {
+		"_postman_id": "33738100-cab7-47cc-b5b0-135a851bbe54",
+		"name": "Blog",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "15325876"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const jsonData = pm.response.json();\r",
+									"const { token } = jsonData;\r",
+									"\r",
+									"pm.environment.set(\"token\", token);\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"nazifcandurgt@gmail.com\",\r\n    \"password\": \"Test12345\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/login",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Fetch My Data",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/me",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"me"
+							]
+						},
+						"description": "deneme"
+					},
+					"response": []
+				},
+				{
+					"name": "Register",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstName\": \"Nazif Can\",\r\n    \"lastName\": \"DURGUT\",\r\n    \"password\": \"Test12345\",\r\n    \"phone\": \"5370281404\",\r\n    \"username\": \"nazifcand\",\r\n    \"email\": \"nazifcandurgt@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/register",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"register"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Category",
+			"item": [
+				{
+					"name": "Fetch Categories",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/categories",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"categories"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Fetch Category By Slug",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/categories/javascript-yeni",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"categories",
+								"javascript-yeni"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Category",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"JavaScript yeni\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/categories",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"categories"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Category",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"category 4\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/categories/3",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"categories",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Category",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/categories/4",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"categories",
+								"4"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Tag",
+			"item": [
+				{
+					"name": "Fetch Tags",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/tags",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"tags"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Fetch Tag By Slug",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/tags/yeni-tag",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"tags",
+								"yeni-tag"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Tag",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Yeni Tag 3\",\r\n    \"bgColor\":\"red\",\r\n    \"textColor\":\"white\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/tags",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"tags"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Tag",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"bgColor\":\"blue\",\r\n    \"textColor\":\"white\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/tags/2",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"tags",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Tag",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/tags/3",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"tags",
+								"3"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Post",
+			"item": [
+				{
+					"name": "Fetch Posts",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/posts",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"posts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Fetch Post By Slug",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/posts/yeni-icerik-99",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"posts",
+								"yeni-icerik-99"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Post",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Turkcell’in Bir Zamanlar Gündemden Düşmek Bilmeyen Arama Motoru Yaani’ye Ne Oldu?\",\r\n    \"summary\": \"Turkcell'in yerli ve millî olmasına sürekli baskı yaptığı fakat daha sonra ortaya atılan iddialarla pek de iyi anılmayan Yaani arama motoruna ne olduğuna bakıyoruz.\",\r\n    \"thumbnail\": \"https://www.webtekno.com/images/editor/default/0004/20/a9bf2001c53a4c141c7bde15131f3ee8f07417aa.jpeg\",\r\n    \"content\": \"Bir dönem ülkemizdeki farklı şirketler, kurumlar, hizmetler vb. haber ve gazete sayfalarından düşmezken şimdilerde ortadan kaybolduğunu görüyoruz. Tabii biz bu durumu fark edene kadar iş işten geçmiş oluyor ve anlam veremediğimiz bir durumda buluyoruz kendimizi. Zira büyük çaplı yatırımların yapıldığı hizmetlerin bu şekilde kaybolması pek de alışılmadık değil.Bu bağlamda daha önce Tekel, Panda Dondurma, Aycell, Simtel ve daha nice farklı kurum ve hizmetin ortadan nasıl kaybolduğunu sizlere anlatmıştık. Şimdiyse odağımıza, Turkcell’in Yaani isimli arama motorunu koyuyoruz. Çıktığı dönemde yerli ve millî olmasına vurgu yapılan hizmet, nedense şu aralar pek de ses çıkarmıyor.\",\r\n    \"tags\": [\r\n        1,\r\n        2\r\n    ],\r\n    \"categories\": [\r\n        1,\r\n        3\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/posts",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"posts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Post",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Yeni icerik 99\",\r\n    \"summary\": \"redx\",\r\n    \"thumbnail\": \"whitex\",\r\n    \"content\": \"icerikx\",\r\n    \"tags\": [],\r\n    \"categories\": []\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/posts/1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"posts",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Post",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/posts/2",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"posts",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{token}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
